@@ -1,0 +1,31 @@
+.web_logo {
+  width: 30px;
+  margin: 20px auto;
+}
+.sidebar_link {
+  text-align: center;
+  /* width: fit-content; */
+  padding: 13px 10px;
+  width: 70px;
+  /* height: 100px; */
+  /* box-shadow: 0px 0px 5px gainsboro; */
+  display: inline-block;
+  margin: 0px auto;
+  margin-left: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.activeLink {
+  background: #0075ff;
+  box-shadow: 0px 12px 24px rgba(0, 117, 255, 0.36);
+  border-radius: 4px;
+  color: white;
+}
+.home_links{
+    margin-top: 15px;
+}
+.faq_links{
+    /* margin-top: 220px !important; */
+    position: absolute !important;
+    bottom: 10px !important;
+}
