@@ -39,7 +39,7 @@ export default function ControlledAccordions() {
   return (
     <div className={classes.root}>
       <Accordion
-        expanded={expanded === "panel1"}
+        // expanded={expanded === "panel1"}
         onChange={()=>handleChange("panel1")}
         className={classes.list}
       >
@@ -80,7 +80,7 @@ export default function ControlledAccordions() {
         </AccordionDetails>
       </Accordion>
       <Accordion
-        expanded={expanded === "panel2"}
+        // expanded={expanded === "panel2"}
         onChange={()=>handleChange("panel2")}
         className={classes.list}
       >
@@ -121,7 +121,7 @@ export default function ControlledAccordions() {
         </AccordionDetails>
       </Accordion>
       <Accordion
-        expanded={expanded === "panel3"}
+        // expanded={expanded === "panel3"}
         onChange={()=>handleChange("panel3")}
         className={classes.list}
       >
