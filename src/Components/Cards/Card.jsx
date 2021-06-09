@@ -1,17 +1,22 @@
 import React from "react";
+import {useSelector} from 'react-redux'
 import "./Card.css";
 // assets
-// import cardImg from "../../Assets/image 21.svg";
-// import newArrive from "../../Assets/Group 16578.svg";
 import add from "../../Assets/Vector.svg";
 import arrow from "../../Assets/Vector (1).svg";
 import compare from "../../Assets/compare (1) 1.svg";
 import detail from "../../Assets/Frame 16640.svg";
 
 const Card = ({ data, price, cardImgShow }) => {
+
+  const selector = useSelector((state)=>{
+    return state.cardReducer.cardData
+  })
+  console.log(selector)
+
   return (
     <div className="card_container">
-      {data.map((val) => (
+      {selector.map((val) => (
         <div className="card_div" key={val.id}>
           <div className="card_top_div">
             <img src={val.newArrival} alt="" />
@@ -32,7 +37,7 @@ const Card = ({ data, price, cardImgShow }) => {
                 <img src={arrow} alt="..." />
                 <p>Net</p>
               </div>
-              {price ? <p className="price_div">{val.price}</p> : null}
+              {price ? <p className="price_div">${val.price}</p> : null}
             </div>
             <div className="compared_main_div">
               <div className="card_compare_div">

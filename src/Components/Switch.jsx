@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import Switch from "react-switch";
 
 const SwitchToggle = ({handleShow,toggle}) => {
-  let [bool, setBool] = useState(false);
-  const handleChange = (e) => {
-    setBool(e);
-  };
+  
   return (
     <div>
       <label>

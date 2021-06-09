@@ -1,10 +1,26 @@
-import React from "react";
+import React,{useState} from "react";
 import SwitchToggle from "../Switch";
+import {dataAtoZ,highToLow} from '../../GlobalState/CreateSlice'
+import {useDispatch} from 'react-redux'
 // assets
 import filter from "../../Assets/Vector (2).svg";
-import more from "../../Assets/sort-down.svg";
+// import more from "../../Assets/sort-down.svg";
 
 const ResultHead = () => {
+  const dispatch = useDispatch()
+  let [comp,setComp] = useState(false)
+  const handleCompare = (e) =>{
+    setComp(e)
+  }
+  const handleChange = (e)=>{
+    //  console.log(e.target.value)
+     dispatch(dataAtoZ(e.target.value))
+  }
+
+  const handleHighToLow =(e) =>{
+    dispatch(highToLow(e.target.value))
+  }
+
   return (
     <div className="result_head_container">
       <div className="result_head_main_div">
@@ -13,8 +29,8 @@ const ResultHead = () => {
             <p>Results (3102)</p>
             <div className="a_z_filter">
               <img src={filter} alt="" />
-              <select name="a-z" id="a-z">
-                <option value="a-z">A-Z</option>
+              <select onChange={handleChange} name="a-z" id="a-z">
+                <option value="a-z" >A-Z</option>
                 <option value="z-a">Z-A</option>
               </select>
               {/* <p>A-Z</p>
@@ -23,9 +39,9 @@ const ResultHead = () => {
             <div className="low_to_high_filter">
               <img src={filter} alt="" />
               <span>Price:</span>
-              <select name="price" id="price">
-                <option value="Low to High">Low to High</option>
-                <option value="Low to High">High to Low</option>
+              <select onChange={handleHighToLow} name="price" id="price">
+                <option value="lth">Low to High</option>
+                <option value="htl">High to Low</option>
               </select>
               {/* <p>A-Z</p>
               <img src={more} alt="" /> */}
@@ -34,7 +50,7 @@ const ResultHead = () => {
           <div className="compare_switch_div">
             <p>Compare</p>
             <div>
-              <SwitchToggle />
+              <SwitchToggle handleShow={handleCompare} toggle={comp} />
             </div>
           </div>
         </div>

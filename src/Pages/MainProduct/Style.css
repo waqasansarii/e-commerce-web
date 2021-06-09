@@ -58,8 +58,26 @@
     }
     
 }
-@media screen and (max-width:330px){
+@media screen and (max-width:420px){
     .filters_container{
-        width: 260px;
+        width: 90%;
+        margin: 0px auto;
+
+    }
+    .margin_box{
+        justify-content: inherit;
+    }
+    .margin_box > p, .margin_counter > p{
+        margin: 5px;
+    }
+}
+@media screen and (max-width:335px){
+    .filters_container{
+        width: 95%;
+    }
+    .margin_box > p, .margin_counter > p{
+        margin: 0px;
+        margin-top: 10px;
+        margin-left: 7px;
     }
 }
