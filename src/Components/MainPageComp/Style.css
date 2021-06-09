@@ -9,7 +9,7 @@
   background-color: white;
 }
 .search_inp_div {
-  width: 270px;
+  width: 100%;
   padding: 10px;
   background: #f5f5f5;
   border: 1px solid #dedede;
@@ -186,6 +186,7 @@
 .cros_tag {
   font-weight: 500;
   font-size: 1.2rem;
+
 }
 
 .filter_check > label {
@@ -219,7 +220,7 @@
   height: 70px;
   
 }
-.result_filter_div,.a_z_filter,.compare_switch_div{
+.result_filter_div,.a_z_filter,.compare_switch_div,.low_to_high_filter{
   display: flex;
   align-items: center;
 }
@@ -227,7 +228,7 @@
   /* border: 2px solid red; */
   width: 50%;
   max-width: 500px;
-  min-width: 320px;
+  min-width: 340px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -237,9 +238,49 @@
   font-size: .9rem;
 }
 .a_z_filter{
-  width: 100px;
+  width: 90px;
   justify-content: space-between;
+}
+.low_to_high_filter{
+  width: fit-content;
+  /* border: 2px solid red; */
+}
+.low_to_high_filter>select,.a_z_filter>select{
+  border: none;
+  outline: none;
+  padding: 5px 0px;
+}
+
+.a_z_filter>select{
+  width: 60px;
+}
+.low_to_high_filter>span{
+  margin-left: 10px;
 }
 .compare_switch_div>div{
   margin-left: 15px;
+}
+
+@media screen and (max-width:830px){
+  .result_head_div{
+    padding: 10px;
+    display: inherit;
+    height: max-content;
+  }
+  .compare_switch_div{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .result_filter_div{
+    min-width: 380px;
+  }
+  .result_filter_div >p{
+    font-size: .8rem;
+  }
+}
+@media screen and (max-width:700px){
+  .result_head_div{
+    display: none;
+  }
 }

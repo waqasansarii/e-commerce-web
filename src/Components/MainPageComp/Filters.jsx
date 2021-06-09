@@ -13,7 +13,7 @@ import CustomizedSlider from "../RangeSlider";
 
 let margin = ['5','10','15','20','25','30','35','40']
 
-const Filters = () => {
+const Filters = ({partfunc,handleShowPrice,price,handleImg,cardImgT}) => {
   let [count, setCount] = useState(5);
 
   const handleAdd = () => {
@@ -32,7 +32,7 @@ const Filters = () => {
         <div className="filter_div">
           <div className="search_inp_div">
             <img src={search} alt="" />
-            <input type="text" placeholder="Search By Part Number " />
+            <input type="text" onChange={partfunc} placeholder="Search By Part Number " />
           </div>
           <div className="price_range">
               <h3>Price Range</h3>
@@ -63,14 +63,14 @@ const Filters = () => {
                    <img src={dollar} alt="" />
                    <p>Price</p>
                 </div>
-                <SwitchToggle />
+                <SwitchToggle handleShow={handleShowPrice} toggle={price} />
             </div>
             <div className="price_switch">
                 <div className="img_price">
                    <img src={imgs} alt="" />
                    <p>Image</p>
                 </div>
-                <SwitchToggle />
+                <SwitchToggle handleShow={handleImg} toggle={cardImgT} />
             </div>
         </div>
         <div className="filter_tags_div">

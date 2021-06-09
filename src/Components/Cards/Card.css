@@ -39,6 +39,9 @@
     /* right: 10px; */
     left: -10px;
 }
+.card_body_div{
+    margin-top: 15px;
+}
 .card_body_div>p , .card_body_div>h3{
     margin-top: 7px;
     padding: 0px 20px;
@@ -105,4 +108,21 @@
     font-size: .85rem;
     font-weight: 500;
     color: #0075FF;
+}
+@media screen and (max-width:1293px){
+    .card_div{
+        width: auto;
+    }
+}
+@media screen and (max-width:500px){
+    .card_div{
+        width: 300px;
+        margin: 10px auto;
+    }
+}
+@media screen and (max-width:350px){
+    .card_div{
+        width: 90%;
+        margin: 10px auto;
+    }
 }

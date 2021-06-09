@@ -1,9 +1,9 @@
 import cardImg from '../../Assets/image 21.svg'
 import newArrive from '../../Assets/Group 16578.svg'
-import add from '../../Assets/Vector.svg'
-import arrow from '../../Assets/Vector (1).svg'
-import compare from '../../Assets/compare (1) 1.svg'
-import detail from '../../Assets/Frame 16640.svg'
+// import add from '../../Assets/Vector.svg'
+// import arrow from '../../Assets/Vector (1).svg'
+// import compare from '../../Assets/compare (1) 1.svg'
+// import detail from '../../Assets/Frame 16640.svg'
 
 export const carddata = [
     {
@@ -13,7 +13,7 @@ export const carddata = [
       title:'Grove',
       name:'Darran',
       desc:'Small Acacia Stool Or Table',
-      price:'$34343',
+      price:'$76575',
     },
     {
         id:'02',
@@ -22,7 +22,7 @@ export const carddata = [
         title:'Grove',
         name:'Darran',
         desc:'Small Acacia Stool Or Table',
-        price:'$34343',
+        price:'$32456',
       },
       {
         id:'03',
@@ -31,7 +31,7 @@ export const carddata = [
         title:'Grove',
         name:'Darran',
         desc:'Small Acacia Stool Or Table',
-        price:'$34343',
+        price:'$765',
       },
       {
         id:'04',
@@ -40,7 +40,7 @@ export const carddata = [
         title:'Grove',
         name:'Darran',
         desc:'Small Acacia Stool Or Table',
-        price:'$34343',
+        price:'$996',
       },
       {
         id:'05',
@@ -49,7 +49,7 @@ export const carddata = [
         title:'Grove',
         name:'Darran',
         desc:'Small Acacia Stool Or Table',
-        price:'$34343',
+        price:'$899',
       },
       {
         id:'06',
@@ -58,7 +58,7 @@ export const carddata = [
         title:'Grove',
         name:'Darran',
         desc:'Small Acacia Stool Or Table',
-        price:'$34343',
+        price:'$5421',
       },
       {
         id:'07',
@@ -67,6 +67,6 @@ export const carddata = [
         title:'Grove',
         name:'Darran',
         desc:'Small Acacia Stool Or Table',
-        price:'$34343',
+        price:'$9675',
       },
 ]
