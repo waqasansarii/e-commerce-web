@@ -18,12 +18,12 @@ const Filters = ({partfunc,handleShowPrice,price,handleImg,cardImgT}) => {
 
   const handleAdd = () => {
     if (count < 40) {
-      setCount(count + 5);
+      setCount(++count );
     }
   };
   const handleMinus = () => {
     if (count > 5) {
-      setCount(count - 5);
+      setCount(--count);
     }
   };
   return (

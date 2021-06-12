@@ -25,8 +25,16 @@ const cardSlice = createSlice({
 
       state.cardData = sort;
     },
+    priceRange:(state,action)=>{
+      // console.log(action.payload[1])
+       const filter = state.filteredData.filter((val)=>{
+       return val.price <= action.payload[1] && val.price >= action.payload[0]
+       })
+      //  console.log(filter)
+       state.cardData = filter
+    }
   },
 });
 
-export const { dataAtoZ, highToLow } = cardSlice.actions;
+export const { dataAtoZ, highToLow ,priceRange} = cardSlice.actions;
 export const cardReducer = cardSlice.reducer;

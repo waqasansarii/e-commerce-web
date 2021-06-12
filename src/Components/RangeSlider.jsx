@@ -2,6 +2,8 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import RangeSliderLine from "./RangeSliderLine";
+import {priceRange} from '../GlobalState/CreateSlice'
+import {useDispatch} from 'react-redux'
 
 
 const AirbnbSlider = withStyles({
@@ -43,18 +45,25 @@ const AirbnbSlider = withStyles({
 
 
 export default function CustomizedSlider() {
-  const [value, setValue] = React.useState([10, 77]);
-
+  const dispatch = useDispatch()
+  const min = 300,
+  max = 15000
+  const [value, setValue] = React.useState([min, max]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    dispatch(priceRange(newValue))
+    console.log(newValue)
   };
 
   return (
     <div>
-      <RangeSliderLine value={value} />
+      <RangeSliderLine min={min}
+        max={max} value={value} />
       <AirbnbSlider
         value={value}
         onChange={handleChange}
+        min={min}
+        max={max}
       />
     </div>
   );

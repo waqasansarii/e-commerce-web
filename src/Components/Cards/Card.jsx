@@ -10,13 +10,14 @@ import detail from "../../Assets/Frame 16640.svg";
 const Card = ({ data, price, cardImgShow }) => {
 
   const selector = useSelector((state)=>{
-    return state.cardReducer.cardData
+    return state.cardReducer
   })
-  console.log(selector)
+  // console.log(selector.cardData )
+  // console.log(selector.filteredData )
 
   return (
     <div className="card_container">
-      {selector.map((val) => (
+      {selector.cardData.map((val) => (
         <div className="card_div" key={val.id}>
           <div className="card_top_div">
             <img src={val.newArrival} alt="" />
