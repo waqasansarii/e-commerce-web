@@ -47,12 +47,11 @@ const AirbnbSlider = withStyles({
 export default function CustomizedSlider() {
   const dispatch = useDispatch()
   const min = 300,
-  max = 15000
+  max = 1000
   const [value, setValue] = React.useState([min, max]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
     dispatch(priceRange(newValue))
-    console.log(newValue)
   };
 
   return (

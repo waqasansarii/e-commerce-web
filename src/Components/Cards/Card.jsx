@@ -1,33 +1,30 @@
 import React from "react";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 import "./Card.css";
 // assets
-import add from "../../Assets/Vector.svg";
 import arrow from "../../Assets/Vector (1).svg";
 import compare from "../../Assets/compare (1) 1.svg";
 import detail from "../../Assets/Frame 16640.svg";
+import AddItemModal from "../Modal/AddItemModal";
 
-const Card = ({ data, price, cardImgShow }) => {
-
-  const selector = useSelector((state)=>{
-    return state.cardReducer
-  })
-  // console.log(selector.cardData )
-  // console.log(selector.filteredData )
+const Card = ({ price, cardImgShow }) => {
+  const selector = useSelector((state) => {
+    return state.cardReducer.cardData;
+  });
 
   return (
     <div className="card_container">
-      {selector.cardData.map((val) => (
+      {selector.map((val) => (
         <div className="card_div" key={val.id}>
           <div className="card_top_div">
-            <img src={val.newArrival} alt="" />
+            {val.newArrival ? <img src={val.newArrival} alt="..." /> : null}
             <div className="add_card_div">
               <p>ADD</p>
-              <img src={add} alt="" />
+              <AddItemModal />
             </div>
           </div>
           {cardImgShow ? (
-            <img className="main_card_img" src={val.cardImg} alt="" />
+            <img className="main_card_img" src={val.cardImg} alt="..." />
           ) : null}
           <div className="card_body_div">
             <h3>{val.title}</h3>

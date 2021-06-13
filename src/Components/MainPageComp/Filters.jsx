@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import FilterList from './FilterList'
+import FilterList from "./FilterList";
+import {useSelector,useDispatch} from 'react-redux'
+import {deleteTags} from '../../GlobalState/CreateSlice'
 import "./Style.css";
 // assets
 import search from "../../Assets/Icon.svg";
@@ -11,14 +13,18 @@ import imgs from "../../Assets/Group (1).svg";
 import SwitchToggle from "../Switch";
 import CustomizedSlider from "../RangeSlider";
 
-let margin = ['5','10','15','20','25','30','35','40']
+let margin = ["5", "10", "15", "20", "25", "30", "35", "40"];
 
-const Filters = ({partfunc,handleShowPrice,price,handleImg,cardImgT}) => {
+const Filters = ({ partfunc, handleShowPrice, price, handleImg, cardImgT }) => {
+  const dispatch = useDispatch()
+  const selector = useSelector((state)=>{
+    return state.cardReducer.tags
+  })
   let [count, setCount] = useState(5);
 
   const handleAdd = () => {
     if (count < 40) {
-      setCount(++count );
+      setCount(++count);
     }
   };
   const handleMinus = () => {
@@ -26,17 +32,26 @@ const Filters = ({partfunc,handleShowPrice,price,handleImg,cardImgT}) => {
       setCount(--count);
     }
   };
+
+
+  const HandledeleteTags = (e) => {
+    dispatch(deleteTags(e))
+  };
   return (
     <div className="filters_container">
       <div className="filter_main_div">
         <div className="filter_div">
           <div className="search_inp_div">
             <img src={search} alt="" />
-            <input type="text" onChange={partfunc} placeholder="Search By Part Number " />
+            <input
+              type="text"
+              onChange={partfunc}
+              placeholder="Search By Part Number "
+            />
           </div>
           <div className="price_range">
-              <h3>Price Range</h3>
-              <CustomizedSlider />
+            <h3>Price Range</h3>
+            <CustomizedSlider />
           </div>
           <div className="margins_div">
             <div className="margin_head">
@@ -44,10 +59,9 @@ const Filters = ({partfunc,handleShowPrice,price,handleImg,cardImgT}) => {
               <img src={i} alt="" />
             </div>
             <div className="margin_box">
-                {margin.map((val)=>(
-                    <p key={val}>{val}%</p>
-                ))}
-
+              {margin.map((val) => (
+                <p key={val}>{val}%</p>
+              ))}
             </div>
             <div className="margin_counter">
               <img onClick={handleMinus} src={minus} alt="..." />
@@ -57,53 +71,45 @@ const Filters = ({partfunc,handleShowPrice,price,handleImg,cardImgT}) => {
           </div>
         </div>
         <div className="viewing_option_div">
-            <h3>Viewing Options</h3>
-            <div className="price_switch">
-                <div className="img_price">
-                   <img src={dollar} alt="" />
-                   <p>Price</p>
-                </div>
-                <SwitchToggle handleShow={handleShowPrice} toggle={price} />
+          <h3>Viewing Options</h3>
+          <div className="price_switch">
+            <div className="img_price">
+              <img src={dollar} alt="" />
+              <p>Price</p>
             </div>
-            <div className="price_switch">
-                <div className="img_price">
-                   <img src={imgs} alt="" />
-                   <p>Image</p>
-                </div>
-                <SwitchToggle handleShow={handleImg} toggle={cardImgT} />
+            <SwitchToggle
+              handleShow={handleShowPrice}
+              toggle={price}
+              on="ON"
+              off="OFF"
+            />
+          </div>
+          <div className="price_switch">
+            <div className="img_price">
+              <img src={imgs} alt="" />
+              <p>Image</p>
             </div>
+            <SwitchToggle
+              handleShow={handleImg}
+              toggle={cardImgT}
+              on="ON"
+              off="OFF"
+            />
+          </div>
         </div>
-        <div className="filter_tags_div">
-            <div className="filter_tag">
-                <p>Tables</p>
-                <p className='cros_tag'>&times;</p>
-            </div>
-            <div className="filter_tag">
-                <p>Accessories</p>
-                <p className='cros_tag'>&times;</p>
-            </div>
-            <div className="filter_tag">
-                <p>Jsi</p>
-                <p className='cros_tag'>&times;</p>
-            </div>
-            <div className="filter_tag">
-                <p>Lounge Seating</p>
-                <p className='cros_tag'>&times;</p>
-            </div>
-            <div className="filter_tag">
-                <p>Lounge Seating</p>
-                <p className='cros_tag'>&times;</p>
-            </div>
-            <div className="filter_tag">
-                <p>Lounge Seating</p>
-                <p className='cros_tag'>&times;</p>
-            </div>
-            <div className="filter_tag">
-                <p>Lounge Seating</p>
-                <p className='cros_tag'>&times;</p>
-            </div>
-        </div>
-        <FilterList />
+        {selector.length ? (
+          <div className="filter_tags_div">
+            {selector.map((val) => (
+              <div className="filter_tag" key={val.val}>
+                <p>{val.val}</p>
+                <p className="cros_tag" onClick={() => HandledeleteTags(val.val)}>
+                  &times;
+                </p>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        <FilterList  />
       </div>
     </div>
   );

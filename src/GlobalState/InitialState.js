@@ -13,7 +13,7 @@ const cardData = [
     title: "Arove",
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
-    price: '550',
+    price: "550",
   },
   {
     id: "02",
@@ -22,7 +22,7 @@ const cardData = [
     title: "Brove",
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
-    price: '640',
+    price: "640",
   },
   {
     id: "03",
@@ -31,7 +31,7 @@ const cardData = [
     title: "Crove",
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
-    price: '390',
+    price: "390",
   },
   {
     id: "04",
@@ -40,7 +40,7 @@ const cardData = [
     title: "Drove",
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
-    price: '796',
+    price: "796",
   },
   {
     id: "05",
@@ -49,7 +49,7 @@ const cardData = [
     title: "Grove",
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
-    price: '899',
+    price: "899",
   },
   {
     id: "06",
@@ -58,7 +58,7 @@ const cardData = [
     title: "Grove",
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
-    price: '421',
+    price: "421",
   },
   {
     id: "07",
@@ -67,11 +67,32 @@ const cardData = [
     title: "Zrove",
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
-    price: '675',
+    price: "675",
   },
-]
+];
 
 export const InitialState = {
   cardData,
-  filteredData:[...cardData]
+  filteredData: [...cardData],
+  checkbox: [
+    { val: "Desks and Workspace", bool: false },
+    { val: "Healthcare", bool: false },
+    { val: "Accessories", bool: false },
+    { val: "JSI", bool: false },
+    { val: "Tables", bool: false },
+    { val: "Seating", bool: false },
+    { val: "Traninig Tables", bool: false },
+    { val: "Lounge Seating", bool: false },
+    { val: "Benches & Ottomans", bool: false },
+    { val: "Occasional Tables", bool: false },
+    { val: "Side Chairs", bool: false },
+    { val: "Task Chairs", bool: false },
+    { val: "AIS", bool: false },
+    { val: "Darran", bool: false },
+    { val: "JSI", bool: false },
+    { val: "Element Contract", bool: false },
+    { val: "Stance Healthcare", bool: false },
+    { val: "Hush Office", bool: false },
+  ],
+  tags:[]
 };

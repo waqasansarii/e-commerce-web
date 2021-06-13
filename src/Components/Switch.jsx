@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Switch from "react-switch";
 
-const SwitchToggle = ({handleShow,toggle}) => {
+const SwitchToggle = ({handleShow,toggle,off,on}) => {
   
   return (
     <div>
@@ -14,13 +14,13 @@ const SwitchToggle = ({handleShow,toggle}) => {
             <div
               style={{
                 color: "#9B9B9B",
-                padding: 2,
-                paddingRight: 2,
-                paddingLeft: 5,
+                padding: 5,
+                paddingRight: 5,
+                paddingLeft: 8,
                 fontSize: 12,
               }}
             >
-              OFF
+              {off}
             </div>
           }
           checkedIcon={
@@ -33,7 +33,7 @@ const SwitchToggle = ({handleShow,toggle}) => {
                 fontSize: 12,
               }}
             >
-              ON
+              {on}
             </div>
           }
           checked={toggle}

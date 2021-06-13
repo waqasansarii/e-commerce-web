@@ -1,8 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&?family=Inter:wght@400;500;700&?family=Lato:wght@400;700&?family=Open+Sans:wght@400;600;700&display=swap");
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiAccordion-root:before {
+  height: 0 !important;
+}
+
+input,
+textarea {
+  outline: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -10,9 +24,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
-
 
 @keyframes App-logo-spin {
   from {

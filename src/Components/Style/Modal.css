@@ -1,0 +1,262 @@
+.close_btn {
+  top: 8px;
+  right: 21px !important;
+  position: absolute !important;
+}
+
+.close_btn:hover {
+  box-shadow: none !important;
+  background-color: unset !important;
+}
+
+.report_modal_content {
+  width: 500px;
+  padding: 0px 16px !important;
+}
+
+.report_form {
+  width: 100%;
+}
+
+.report_form textarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+  padding: 10px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+}
+
+.report_modal h6 {
+  font-size: 24px;
+}
+
+.report_modal .report_button {
+  width: 150px;
+}
+
+.report_form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  margin-top: 5px;
+}
+
+.report_form label {
+  color: #302c2c !important;
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif !important;
+}
+
+.report_form > div input {
+  width: 60%;
+  height: 40px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* additem_model_content */
+
+.additem_modal {
+  border-radius: 15px !important;
+}
+
+.additem_model_content {
+  width: 800px;
+  height: max-content;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 34px 36px !important;
+}
+
+.additem_model_content hr {
+  background-color: #dedede !important;
+  border: none;
+  height: 0.6px;
+}
+
+.additem_model_content span {
+  color: #3a485a;
+}
+
+.additem_model_content strong {
+  color: #302c2c;
+  font-size: 1rem !important;
+  display: block;
+  font-weight: 500;
+}
+
+.additem_model_content > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.amc_1,
+.amc_2,
+.amc_3 {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.amc_1 {
+  text-align: center;
+}
+
+/* select items */
+
+#item1:checked + label,
+#item2:checked + label,
+#item3:checked + label {
+  border: 1.9px solid #0075ff;
+  border-radius: 4px;
+}
+
+.item_select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.amc_2 strong {
+  margin-top: 5px;
+}
+
+.amc1_content,
+.amc2_content,
+.amc3_content {
+  width: 100%;
+}
+
+.amc2_content h2 {
+  color: #302c2c;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 500;
+}
+
+.amc2_text1 span {
+  color: #0075ff;
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+.amc3_content {
+  margin-top: 42px;
+}
+
+.amc3_content span {
+  color: #000000;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 500;
+}
+
+.amc3_content strong {
+  color: #000000;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 700;
+}
+
+.amc3_text span {
+  color: #0075ff;
+  margin-right: 8px;
+}
+
+.amc1_content > div {
+  width: 100%;
+  margin-top: 34px;
+  padding: 0 20px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.asd {
+  padding: 0 25px !important;
+}
+
+/* addproduct_button */
+
+.additem_bottom {
+  padding: 0px 36px 10px 36px !important;
+}
+
+.addproduct_button {
+  background: #0075ff !important;
+  color: white !important;
+  margin-bottom: 0.6rem !important;
+  padding: 8px 20px !important;
+  line-height: 0 !important;
+}
+
+@media screen and (max-width: 900px) {
+  .additem_model_content {
+    overflow: unset !important;
+    width: 660px;
+    padding: 34px 36px 15px 36px !important;
+  }
+  .amc1_content > div {
+    padding: 0 69px;
+    justify-content: center;
+  }
+  .additem_model_content > div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .amc_1,
+  .amc_2,
+  .amc_3 {
+    width: 90%;
+  }
+  .amc_2 {
+    margin-top: 2rem;
+  }
+  .additem_bottom {
+    justify-content: center !important;
+  }
+  .addproduct_button {
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .additem_model_content {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .additem_model_content {
+    width: 550px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .additem_model_content {
+    width: 100%;
+  }
+  .amc_1,
+  .amc_2,
+  .amc_3 {
+    width: 92%;
+  }
+}
+
+@media screen and (max-width: 566px) {
+  .report_modal_content,
+  .report_form > div input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .report_modal h6 {
+    font-size: 18px;
+  }
+  .report_form label {
+    font-size: 0.8rem;
+  }
+}

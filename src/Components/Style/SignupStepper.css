@@ -1,0 +1,150 @@
+.signup_section {
+  width: 100%;
+  /* max-height: 120vh; */
+  min-height: 100vh;
+  display: flex;
+}
+
+.s_stepper {
+  width: 50%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0 0 0;
+  flex-direction: column;
+}
+
+.s_stepper img {
+  width: 80px;
+  object-fit: contain;
+  margin-bottom: 3rem;
+}
+
+.s_stepper_content {
+  box-shadow: 0px 0px 0px 1px rgba(219, 222, 223, 0.44);
+  margin: 0 auto 19px auto;
+  width: 388px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.s_stepper_content > div {
+  width: 100%;
+  text-align: center;
+}
+
+.stepper_btn {
+  background: #2595ff !important;
+  color: white !important;
+  width: 85% !important;
+  height: 40px !important;
+  font-family: "Open Sans", sans-serif !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+.stepper_btn:hover {
+  box-shadow: none !important;
+}
+
+.s_stepper_bottom {
+  width: 100%;
+  margin-top: 42px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.s_stepper_bottom span {
+  font-size: 0.9rem;
+  color: #16325c;
+}
+
+.s_stepper_bottom strong {
+  color: #0070d2;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.stepper_step {
+  padding: 10px 100px !important;
+  margin-top: 4rem;
+}
+
+.stepper_step svg.MuiStepIcon-active {
+  border: 2px solid #0075ff;
+  border-radius: 100%;
+}
+
+.stepper_step svg.MuiStepIcon-completed {
+  color: #0075ff !important;
+}
+
+.stepper_step svg {
+  color: #f9f9f9 !important;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border: 2px solid #e5e5e5;
+}
+
+.stepper_step svg.MuiStepIcon-active text {
+  fill: #0075ff !important;
+}
+
+.stepper_step svg text {
+  font-weight: bold;
+  fill: #8091a9;
+  font-size: 0.8rem !important;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.s_stepperimg {
+  width: 50%;
+  height: auto;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.s_img1 {
+  background-image: url("../../Assets/signup_right_bg.png");
+}
+
+.s_img2 {
+  background-image: url("../../Assets/signup_right_bg2.png");
+}
+
+@media screen and (max-width: 900px) {
+  .s_stepper_content {
+    width: 100%;
+  }
+  .s_stepper_bottom span {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .s_stepperimg {
+    display: none !important;
+  }
+  .s_stepper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .s_stepper {
+    width: 84%;
+    margin: 3rem auto 0 auto;
+  }
+  .stepper_step {
+    padding: 0 24px !important;
+  }
+}

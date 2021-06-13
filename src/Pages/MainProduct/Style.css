@@ -1,7 +1,5 @@
 .main_page_container{
     display: flex;
-    /* margin-left: 100px; */
-    /* margin-top: 100px; */
     padding-top: 100px;
     padding-left: 130px;
     background: #E5E5E5;
@@ -9,9 +7,8 @@
 }
 .filter_head_card_comp{
     margin-left: 20px;
-    width: 75%;
+    width: 80%;
     padding-right: 15px;
-    /* border: 2px solid red; */
 }
 
 .top_arrow_div{

@@ -4,6 +4,8 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
+import {useSelector,useDispatch} from 'react-redux'
+import {tagsAdd} from '../../GlobalState/CreateSlice'
 // assets
 import more from "../../Assets/sort-down.svg";
 
@@ -29,18 +31,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ControlledAccordions() {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState( {panel1:false,panel2:false,panel3:false});
+  const dispatch = useDispatch();
+  const selector = useSelector((state)=>{
+    return state.cardReducer.checkbox
+  })
+  // console.log(selector)
 
-  const handleChange = (panel) =>  {
-    setExpanded({...expanded,[panel]: !expanded[panel] })
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState({
+    panel1: false,
+    panel2: false,
+    panel3: false,
+  });
+
+  const handleChange = (panel) => {
+    setExpanded({ ...expanded, [panel]: !expanded[panel] });
   };
-  
+
+  const handleChecked = (e)=>{
+    const checked = e.target.checked 
+    const cValue = e.target.value 
+    const dataid = e.target.dataset.id
+      dispatch(tagsAdd({checked,dataid,cValue}))
+  }
+
   return (
     <div className={classes.root}>
       <Accordion
-        // expanded={expanded === "panel1"}
-        onChange={()=>handleChange("panel1")}
+        onChange={() => handleChange("panel1")}
         className={classes.list}
       >
         <AccordionSummary
@@ -52,36 +70,26 @@ export default function ControlledAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <div className="filter_check">
-            <label htmlFor="desks">
-              <input type="checkbox" name="desks" id="desks" />
-              <p>Desks and Workspace</p>
-            </label>
-            <label htmlFor="Healthcare">
-              <input type="checkbox" name="Healthcare" id="Healthcare" />
-              <p>Healthcare</p>
-            </label>
-            <label htmlFor="Accessories">
-              <input type="checkbox" name="Accessories" id="Accessories" />
-              <p>Accessories</p>
-            </label>
-            <label htmlFor="JSI">
-              <input type="checkbox" name="JSI" id="JSI" />
-              <p>JSI</p>
-            </label>
-            <label htmlFor="Tables">
-              <input type="checkbox" name="Tables" id="Tables" />
-              <p>Tables</p>
-            </label>
-            <label htmlFor="Seating">
-              <input type="checkbox" name="Seating" id="Seating" />
-              <p>Seating</p>
-            </label>
+            {selector.slice(0, 6).map((val, id) => (
+              <label key={val.val} htmlFor={val.val}>
+                <input
+                  type="checkbox"
+                  onChange={handleChecked}
+                  data-id={id}
+                  value={val.val}
+                  name={val.val}
+                  id={val.val}
+                  checked={val.bool}
+                />
+                <p>{val.val}</p>
+              </label>
+            ))}
           </div>
         </AccordionDetails>
       </Accordion>
       <Accordion
         // expanded={expanded === "panel2"}
-        onChange={()=>handleChange("panel2")}
+        onChange={() => handleChange("panel2")}
         className={classes.list}
       >
         <AccordionSummary
@@ -92,37 +100,26 @@ export default function ControlledAccordions() {
           <Typography className={classes.heading}>Users</Typography>
         </AccordionSummary>
         <AccordionDetails>
-        <div className="filter_check">
-            <label htmlFor="Traninig">
-              <input type="checkbox" name="Traninig" id="Traninig" />
-              <p>Traninig Tables</p>
-            </label>
-            <label htmlFor="Lounge">
-              <input type="checkbox" name="Lounge" id="Lounge" />
-              <p>Lounge Seating</p>
-            </label>
-            <label htmlFor="Benches">
-              <input type="checkbox" name="Benches" id="Benches" />
-              <p>Benches & Ottomans</p>
-            </label>
-            <label htmlFor="Occasional">
-              <input type="checkbox" name="Occasional" id="Occasional" />
-              <p>Occasional Tables</p>
-            </label>
-            <label htmlFor="sc">
-              <input type="checkbox" name="sc" id="sc" />
-              <p>Side Chairs</p>
-            </label>
-            <label htmlFor="tc">
-              <input type="checkbox" name="tc" id="tc" />
-              <p>Task Chairs</p>
-            </label>
+          <div className="filter_check">
+            {selector.slice(6, 12).map((val, id) => (
+              <label key={val.val} htmlFor={val.val}>
+                <input
+                  type="checkbox"
+                  onChange={handleChecked}
+                  data-id={id +6}
+                  value={val.val}
+                  name={val.val}
+                  id={val.val}
+                  checked={val.bool}
+                />
+                <p>{val.val}</p>
+              </label>
+            ))}
           </div>
         </AccordionDetails>
       </Accordion>
       <Accordion
-        // expanded={expanded === "panel3"}
-        onChange={()=>handleChange("panel3")}
+        onChange={() => handleChange("panel3")}
         className={classes.list}
       >
         <AccordionSummary
@@ -133,31 +130,21 @@ export default function ControlledAccordions() {
           <Typography className={classes.heading}>Advanced settings</Typography>
         </AccordionSummary>
         <AccordionDetails>
-        <div className="filter_check">
-            <label htmlFor="AIS">
-              <input type="checkbox" name="AIS" id="AIS" />
-              <p>AIS</p>
-            </label>
-            <label htmlFor="Darran">
-              <input type="checkbox" name="Darran" id="Darran" />
-              <p>Darran</p>
-            </label>
-            <label htmlFor="JSI2">
-              <input type="checkbox" name="JSI2" id="JSI2" />
-              <p>JSI</p>
-            </label>
-            <label htmlFor="Element">
-              <input type="checkbox" name="Element" id="Element" />
-              <p>Element Contract</p>
-            </label>
-            <label htmlFor="Stance">
-              <input type="checkbox" name="Stance" id="Stance" />
-              <p>Stance Healthcare</p>
-            </label>
-            <label htmlFor="Office">
-              <input type="checkbox" name="Office" id="Office" />
-              <p>Hush Office</p>
-            </label>
+          <div className="filter_check">
+            {selector.slice(12, 18).map((val, id) => (
+              <label key={val.val} htmlFor={val.val}>
+                <input
+                  type="checkbox"
+                  onChange={handleChecked}
+                  data-id={id +12}
+                  value={val.val}
+                  name={val.val}
+                  id={val.val}
+                  checked={val.bool}
+                />
+                <p>{val.val}</p>
+              </label>
+            ))}
           </div>
         </AccordionDetails>
       </Accordion>

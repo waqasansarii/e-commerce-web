@@ -9,13 +9,15 @@ import topArr from "../../Assets/arrow-right 3.svg";
 import "./Style.css";
 
 const MainProduct = () => {
- 
-  // top button show 
+  const [width] = React.useState(window.innerWidth);
+  // top button show
   window.addEventListener("scroll", function () {
     var header = document.querySelector(".top_arrow_div");
-    header.classList.toggle("showTop", window.scrollY > 400);
+    if (width < 990) {
+      header.classList.add("showTop", window.scrollY > 400);
+    }
   });
-  // end 
+  // end
 
   let [partNum, setPartNum] = useState("");
 
