@@ -1,6 +1,10 @@
 .web_logo {
   width: 30px;
   margin: 20px auto;
+  text-align: center;
+}
+.logo_link{
+  text-align: center;
 }
 .sidebar_link {
   text-align: center;
@@ -165,6 +169,19 @@
 .counter_td span {
   display: inline-block;
   margin: 0px 10px;
+}
+.cart_nav_logo{
+  position: relative;
+}
+.no_cart_items{
+  background-color: red;
+  color: white;
+  font-size: .75rem;
+  position: absolute;
+  padding: 2px 7px;
+  border-radius: 20px;
+  right: -12px;
+  top: -8px;
 }
 
 @media screen and (max-width: 990px) {

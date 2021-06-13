@@ -9,22 +9,18 @@ import add from "../Assets/Group 16559.svg";
 import minus from "../Assets/Group 16560.svg";
 import dlt from "../Assets/dlt.svg";
 
-
 export default function CartSideBar() {
   const [state, setState] = React.useState({
     right: false,
   });
-  let [count,setCount] = useState(1)
+  let [count, setCount] = useState(1);
 
   const toggleDrawer = (anchor, open) => (event) => {
     setState({ ...state, [anchor]: open });
   };
 
   const list = (anchor) => (
-    <div
-      className="cart_sidebar_container"
-      role="presentation"
-    >
+    <div className="cart_sidebar_container" role="presentation">
       <div className="cart_head">
         <div className="cart_head_img">
           <img src={cart2} alt="" />
@@ -55,9 +51,13 @@ export default function CartSideBar() {
               <td>$3423</td>
               <td className="counter_td">
                 <div>
-                  <img onClick={()=>setCount(count ===0 ?count: --count)} src={minus} alt="..." />
+                  <img
+                    onClick={() => setCount(count === 0 ? count : --count)}
+                    src={minus}
+                    alt="..."
+                  />
                   <span>{count}</span>
-                  <img onClick={()=>setCount(++count)} src={add} alt="..." />
+                  <img onClick={() => setCount(++count)} src={add} alt="..." />
                 </div>
               </td>
               <td>
@@ -74,12 +74,15 @@ export default function CartSideBar() {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <img
-            className="nav_cartLogo"
-            onClick={toggleDrawer(anchor, true)}
-            src={cart}
-            alt="..."
-          />
+          <div className='cart_nav_logo'>
+            <img
+              className="nav_cartLogo"
+              onClick={toggleDrawer(anchor, true)}
+              src={cart}
+              alt="..."
+            />
+            <span className='no_cart_items'>3</span>
+          </div>
           <Drawer
             anchor={anchor}
             open={state[anchor]}

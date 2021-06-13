@@ -23,6 +23,7 @@
   padding-left: 7px;
   color: black;
   width: 95%;
+  font-size: 16px;
 }
 .search_inp_div > input::placeholder {
   color: black;

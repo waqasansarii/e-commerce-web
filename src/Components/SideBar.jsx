@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import clsx from "clsx";
 import "./Style/SideBar.css";
 // assets
@@ -202,7 +202,9 @@ export default function SideBar() {
             }}
             anchor="left"
           >
-            <img className="web_logo" src={logo} alt="" />
+            <Link to="/" className='logo_link'>
+              <img className="web_logo" src={logo} alt="" />
+            </Link>
             <List>
               <div className="home_links">
                 <NavLink

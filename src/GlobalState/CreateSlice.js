@@ -36,6 +36,7 @@ const cardSlice = createSlice({
             value.bool = true;
           }
         }
+        return value
       });
       let newCheckedValues = state.tags.filter((item) => item.val !== hero.val);
       if (action.payload.checked) newCheckedValues.push(hero);
@@ -46,13 +47,14 @@ const cardSlice = createSlice({
       state.checkbox.filter((val)=>{
         if(val.val===action.payload){
           if(val.bool){
-            val.bool = false;
+             val.bool = false;
           }else{
             val.bool=true
           }
-          return val
+          // return val
 
         }
+        return val
       })
       state.tags = filterDlt;
     },
