@@ -2,9 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import RangeSliderLine from "./RangeSliderLine";
-import {priceRange} from '../GlobalState/CreateSlice'
-import {useDispatch} from 'react-redux'
-
+import { Box } from "@material-ui/core";
 
 const AirbnbSlider = withStyles({
   root: {
@@ -43,27 +41,22 @@ const AirbnbSlider = withStyles({
   },
 })(Slider);
 
-
-export default function CustomizedSlider() {
-  const dispatch = useDispatch()
-  const min = 300,
-  max = 1000
-  const [value, setValue] = React.useState([min, max]);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    dispatch(priceRange(newValue))
-  };
-
+export default function CustomizedSlider({ handleChange, value, min, max }) {
   return (
     <div>
-      <RangeSliderLine min={min}
-        max={max} value={value} />
-      <AirbnbSlider
-        value={value}
-        onChange={handleChange}
-        min={min}
-        max={max}
-      />
+      <RangeSliderLine min={min} max={max} value={value} />
+      <AirbnbSlider value={value} onChange={handleChange} min={min} max={max} />
+      <Box
+        className="range_bottom_text"
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <span style={{ color: "#9B9B9B" }}>{`$${value[0]}`}</span>
+        <span
+          style={{ color: "#0075FF", fontWeight: 600 }}
+        >{`$${value[1]}`}</span>
+      </Box>
     </div>
   );
 }

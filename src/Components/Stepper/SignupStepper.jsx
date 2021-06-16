@@ -62,8 +62,8 @@ export default function SignupStepper() {
             activeStep={activeStep}
             alternativeLabel
           >
-            {steps.map((label) => (
-              <Step key={label}>
+            {steps.map((label,id) => (
+              <Step key={id}>
                 <StepLabel> </StepLabel>
               </Step>
             ))}

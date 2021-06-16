@@ -63,11 +63,14 @@
 .card_top_div {
   padding-right: 10px;
 }
-.add_card_div button {
+.detail_div {
   background: none !important;
   border: none !important;
   cursor: pointer !important;
   margin-top: 5px;
+  width: -webkit-max-content !important;
+  width: -moz-max-content !important;
+  width: max-content !important;
 }
 
 .add_card_div > p {
@@ -78,6 +81,9 @@
 .add_card_div {
   display: flex;
   justify-content: flex-end;
+}
+.add_card_div img {
+  cursor: pointer;
 }
 .card_net_div,
 .card_compare_div {
@@ -125,7 +131,7 @@
 }
 .detail_div {
   margin-top: 25px;
-  padding: 0px 20px;
+  margin-left: 20px;
 }
 .detail_div > p {
   margin-left: 10px;

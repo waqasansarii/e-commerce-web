@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FilterList from "./FilterList";
-import {useSelector,useDispatch} from 'react-redux'
-import {deleteTags} from '../../GlobalState/CreateSlice'
+import { useSelector, useDispatch } from "react-redux";
+import { deleteTags } from "../../GlobalState/CreateSlice";
 import "./Style.css";
 // assets
 import search from "../../Assets/Icon.svg";
@@ -15,11 +15,20 @@ import CustomizedSlider from "../RangeSlider";
 
 let margin = ["5", "10", "15", "20", "25", "30", "35", "40"];
 
-const Filters = ({ partfunc, handleShowPrice, price, handleImg, cardImgT }) => {
-  const dispatch = useDispatch()
-  const selector = useSelector((state)=>{
-    return state.cardReducer.tags
-  })
+const Filters = ({
+  handleShowPrice,
+  price,
+  handleImg,
+  cardImgT,
+  handleRange,
+  range,
+  min,
+  max,
+}) => {
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => {
+    return state.cardReducer.tags;
+  });
   let [count, setCount] = useState(5);
 
   const handleAdd = () => {
@@ -33,9 +42,8 @@ const Filters = ({ partfunc, handleShowPrice, price, handleImg, cardImgT }) => {
     }
   };
 
-
   const HandledeleteTags = (e) => {
-    dispatch(deleteTags(e))
+    dispatch(deleteTags(e));
   };
   return (
     <div className="filters_container">
@@ -43,15 +51,16 @@ const Filters = ({ partfunc, handleShowPrice, price, handleImg, cardImgT }) => {
         <div className="filter_div">
           <div className="search_inp_div">
             <img src={search} alt="" />
-            <input
-              type="text"
-              onChange={partfunc}
-              placeholder="Search By Part Number "
-            />
+            <input type="text" placeholder="Search By Part Number " />
           </div>
           <div className="price_range">
             <h3>Price Range</h3>
-            <CustomizedSlider />
+            <CustomizedSlider
+              handleChange={handleRange}
+              value={range}
+              min={min}
+              max={max}
+            />
           </div>
           <div className="margins_div">
             <div className="margin_head">
@@ -60,7 +69,7 @@ const Filters = ({ partfunc, handleShowPrice, price, handleImg, cardImgT }) => {
             </div>
             <div className="margin_box">
               {margin.map((val) => (
-                <p key={val}>{val}%</p>
+                <button key={val}>{val}%</button>
               ))}
             </div>
             <div className="margin_counter">
@@ -102,14 +111,17 @@ const Filters = ({ partfunc, handleShowPrice, price, handleImg, cardImgT }) => {
             {selector.map((val) => (
               <div className="filter_tag" key={val.val}>
                 <p>{val.val}</p>
-                <p className="cros_tag" onClick={() => HandledeleteTags(val.val)}>
+                <p
+                  className="cros_tag"
+                  onClick={() => HandledeleteTags(val.val)}
+                >
                   &times;
                 </p>
               </div>
             ))}
           </div>
         ) : null}
-        <FilterList  />
+        <FilterList />
       </div>
     </div>
   );

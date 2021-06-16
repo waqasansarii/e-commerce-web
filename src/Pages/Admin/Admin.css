@@ -1,0 +1,147 @@
+.admin_sd {
+  margin-top: 150px;
+  margin-left: 120px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.admin_user_no {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 30px;
+  position: static;
+  width: 224px;
+  height: 302px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #eceef3;
+  box-sizing: border-box;
+  border-radius: 12px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 20px;
+}
+.admin_user_no > p {
+  margin-top: 20px;
+}
+.admin_user_no > h1 {
+  margin-top: 15px;
+  font-size: 2.5rem;
+}
+
+.support_ticket {
+  position: static;
+  width: 258px;
+  height: 379px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #eceef3;
+  box-sizing: border-box;
+  border-radius: 12px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 20px;
+  padding: 10px 10px;
+}
+.support_ticket > h4 {
+  text-align: center;
+  margin: 15px 0px;
+}
+.tickets {
+  background: #f9f9f9;
+  border-radius: 8px;
+  list-style: none;
+}
+
+.tickets > li {
+  padding: 10px 10px;
+  border: 1px solid #eceef3;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+.chart_div_con {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 0px ;
+  padding-bottom: 0px;
+  position: static;
+  width: 259.06px;
+  /* height: 243px; */
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #eceef3;
+  box-sizing: border-box;
+  border-radius: 12px 12px 0px 0px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+.chart_body>h3{
+    margin-left: 15px;
+    font-size: 1.5rem;
+}
+.s_rqst{
+  margin-left: 15px;
+  color: #0075ff;
+
+}
+.t_s_rqst{
+    font-size: .8rem;
+  margin-left: 15px;
+  margin-top: 10px;
+  color: #8091A9;
+}
+.chart_botm_d{
+    display: flex;
+    justify-content: space-between;
+  width: 258.06px;
+  background: #0046FE;
+  padding: 10px 40px;
+  border-radius: 0px 0px 12px 12px;
+  color: white;
+  text-align: center;
+  margin-top: -1px;
+}
+.chart_botm_d p{
+  font-size: .8rem;
+}
+
+.chart_container{
+    height: fit-content;
+    background-color: transparent;
+}
+
+@media screen and (max-width:990px){
+    .admin_sd{
+        margin-left: 20px;
+    }
+    .support_ticket{
+        margin-top: 20px;
+        margin: 20px 10px;
+    }
+    .admin_user_no{
+        width: 258px;
+    }
+}
+@media screen and (max-width:600px){
+    .chart_container{
+        margin-top: 20px;
+    }
+    .admin_user_no{
+        margin-left: 0px;
+    }
+    .support_ticket{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}

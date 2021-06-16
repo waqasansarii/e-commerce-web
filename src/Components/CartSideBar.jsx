@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import Drawer from "@material-ui/core/Drawer";
+import { useSelector, useDispatch } from "react-redux";
+import { minusQty, addQty } from "../GlobalState/CreateSlice";
 // assets
 import cart from "../Assets/chair 1.svg";
 import cart2 from "../Assets/cart.svg";
 import arrow from "../Assets/Vector (1).svg";
-import cardImg from "../Assets/image 21.svg";
 import add from "../Assets/Group 16559.svg";
 import minus from "../Assets/Group 16560.svg";
 import dlt from "../Assets/dlt.svg";
 
 export default function CartSideBar() {
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => {
+    return state.cardReducer.cart;
+  });
   const [state, setState] = React.useState({
     right: false,
   });
-  let [count, setCount] = useState(1);
 
   const toggleDrawer = (anchor, open) => (event) => {
     setState({ ...state, [anchor]: open });
@@ -43,27 +47,41 @@ export default function CartSideBar() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="pro_info_td">
-                <img className="cart_pro_img" src={cardImg} alt="..." />{" "}
-                <span>Grove</span>
-              </td>
-              <td>$3423</td>
-              <td className="counter_td">
-                <div>
-                  <img
-                    onClick={() => setCount(count === 0 ? count : --count)}
-                    src={minus}
-                    alt="..."
-                  />
-                  <span>{count}</span>
-                  <img onClick={() => setCount(++count)} src={add} alt="..." />
-                </div>
-              </td>
-              <td>
-                <img src={dlt} alt="" />
-              </td>
-            </tr>
+            {selector.map((res, id) => (
+              <React.Fragment key={id}>
+                {res.map((val) => (
+                  <tr key={val.id}>
+                    <td className="pro_info_td">
+                      <img
+                        className="cart_pro_img"
+                        src={val.cardImg}
+                        alt="..."
+                      />{" "}
+                      <span>{val.title}</span>
+                    </td>
+                    <td>${val.price}</td>
+                    <td className="counter_td">
+                      <div>
+                        <img
+                          onClick={() => dispatch(minusQty(val.id))}
+                          src={minus}
+                          alt="..."
+                        />
+                        <span>{val.qty}</span>
+                        <img
+                          onClick={() => dispatch(addQty(val.id))}
+                          src={add}
+                          alt="..."
+                        />
+                      </div>
+                    </td>
+                    <td>
+                      <img src={dlt} alt="" />
+                    </td>
+                  </tr>
+                ))}
+              </React.Fragment>
+            ))}
           </tbody>
         </table>
       </div>
@@ -74,14 +92,16 @@ export default function CartSideBar() {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <div className='cart_nav_logo'>
+          <div className="cart_nav_logo">
             <img
               className="nav_cartLogo"
               onClick={toggleDrawer(anchor, true)}
               src={cart}
               alt="..."
             />
-            <span className='no_cart_items'>3</span>
+            {selector.length ? (
+              <span className="no_cart_items">{selector.length}</span>
+            ) : null}
           </div>
           <Drawer
             anchor={anchor}

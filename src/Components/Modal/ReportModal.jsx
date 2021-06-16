@@ -77,7 +77,7 @@ export default function CustomizedDialogs() {
         Report an issue
       </Button>{" "}
       <Dialog
-      onBackdropClick="false"
+      // onBackdropClick="false"
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}

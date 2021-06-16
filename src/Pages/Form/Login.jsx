@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Form.css";
 // assets
 import userIcon from "../../Assets/user-icon.png";
@@ -9,12 +9,13 @@ import CCLogo from "../../Assets/CC_Logo_final 2.svg";
 import { Button } from "@material-ui/core";
 
 const Login = () => {
+  const history = useHistory();
   return (
     <React.Fragment>
       <div className="login_section">
         <div className="s_stepper">
           <Link to="/">
-            <img src={CCLogo} alt="..."/>
+            <img src={CCLogo} alt="..." />
           </Link>
           <div>
             <div className="s_stepper_content">
@@ -24,7 +25,7 @@ const Login = () => {
                 </div>
                 <form action="#" className="s_form s2_form">
                   <div>
-                    <img src={userIcon} alt="..."/>
+                    <img src={userIcon} alt="..." />
                     <input type="text" placeholder="Email Address" />
                   </div>
                   <div>
@@ -32,7 +33,7 @@ const Login = () => {
                       <img src={lockIcon} alt="..." />
                       <input type="password" placeholder="Password" />
                     </div>
-                    <img src={eyeIcon} alt="..."/>
+                    <img src={eyeIcon} alt="..." />
                   </div>
                   <div className="fp_text">
                     <span>
@@ -42,7 +43,13 @@ const Login = () => {
                 </form>
               </div>
               <div>
-                <Button variant="contained" className="stepper_btn">
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    history.push("/");
+                  }}
+                  className="stepper_btn"
+                >
                   LOGIN
                 </Button>
               </div>

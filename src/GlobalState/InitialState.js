@@ -14,6 +14,7 @@ const cardData = [
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
     price: "550",
+    qty: 1,
   },
   {
     id: "02",
@@ -23,6 +24,7 @@ const cardData = [
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
     price: "640",
+    qty: 1,
   },
   {
     id: "03",
@@ -32,6 +34,7 @@ const cardData = [
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
     price: "390",
+    qty: 1,
   },
   {
     id: "04",
@@ -41,6 +44,7 @@ const cardData = [
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
     price: "796",
+    qty: 1,
   },
   {
     id: "05",
@@ -50,6 +54,7 @@ const cardData = [
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
     price: "899",
+    qty: 1,
   },
   {
     id: "06",
@@ -59,6 +64,7 @@ const cardData = [
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
     price: "421",
+    qty: 1,
   },
   {
     id: "07",
@@ -68,6 +74,7 @@ const cardData = [
     name: "Darran",
     desc: "Small Acacia Stool Or Table",
     price: "675",
+    qty: 1,
   },
 ];
 
@@ -94,5 +101,6 @@ export const InitialState = {
     { val: "Stance Healthcare", bool: false },
     { val: "Hush Office", bool: false },
   ],
-  tags:[]
+  tags: [],
+  cart: [],
 };

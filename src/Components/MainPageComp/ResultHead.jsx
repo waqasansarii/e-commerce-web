@@ -1,25 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import SwitchToggle from "../Switch";
-import { dataAtoZ, highToLow } from "../../GlobalState/CreateSlice";
-import { useDispatch } from "react-redux";
 // assets
 import filter from "../../Assets/Vector (2).svg";
 // import more from "../../Assets/sort-down.svg";
 
-const ResultHead = () => {
-  const dispatch = useDispatch();
-  let [comp, setComp] = useState(false);
-  const handleCompare = (e) => {
-    setComp(e);
-  };
-  const handleChange = (e) => {
-    //  console.log(e.target.value)
-    dispatch(dataAtoZ(e.target.value));
-  };
-
-  const handleHighToLow = (e) => {
-    dispatch(highToLow(e.target.value));
-  };
+const ResultHead = ({handleCompare,compare,handleAtoZ,handleHighToLow}) => {
+ 
 
   return (
     <div className="result_head_container">
@@ -29,7 +15,7 @@ const ResultHead = () => {
             <p>Results (3102)</p>
             <div className="a_z_filter">
               <img src={filter} alt="" />
-              <select onChange={handleChange} name="a-z" id="a-z">
+              <select onChange={handleAtoZ} name="a-z" id="a-z">
                 <option value="a-z">A-Z</option>
                 <option value="z-a">Z-A</option>
               </select>
@@ -48,7 +34,7 @@ const ResultHead = () => {
             <div>
               <SwitchToggle
                 handleShow={handleCompare}
-                toggle={comp}
+                toggle={compare}
                 off="OFF"
                 on="ON"
               />

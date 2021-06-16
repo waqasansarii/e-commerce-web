@@ -9,7 +9,7 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import SwitchToggle from "../Switch";
 // assets
 import IconButton from "@material-ui/core/IconButton";
-import add from "../../Assets/Vector.svg";
+import detail from "../../Assets/Frame 16640.svg";
 import AddIcon from "../../Assets/add-icon.png";
 import closeBtnIcon from "../../Assets/close-btn-icon.png";
 import item1 from "../../Assets/item1.png";
@@ -31,7 +31,7 @@ const DialogTitle = withStyles(styles)((props) => {
     <MuiDialogTitle disableTypography className="asd" {...other}>
       {onClose ? (
         <IconButton aria-label="close" className="close_btn" onClick={onClose}>
-          <img src={closeBtnIcon} alt="..."/>
+          <img src={closeBtnIcon} alt="..." />
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -64,11 +64,12 @@ export default function CustomizedDialogs() {
 
   return (
     <Box>
-      <button onClick={handleClickOpen}>
-        <img src={add} alt="..." />
+      <button className="detail_div" onClick={handleClickOpen}>
+        <img src={detail} alt="..." />
+        <p>View Details</p>
       </button>
       <Dialog
-      PaperProps={{className:"additem_modal"}}
+        PaperProps={{ className: "additem_modal" }}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
@@ -84,7 +85,7 @@ export default function CustomizedDialogs() {
             <Box className="amc_1">
               <Box className="amc1_content">
                 <img src={item1} alt="..." />
-                <Box className="amc1_sub_items"> 
+                <Box className="amc1_sub_items">
                   <input
                     type="radio"
                     style={{ display: "none" }}
@@ -239,7 +240,12 @@ export default function CustomizedDialogs() {
                   justifyContent="space-between"
                 >
                   <span>Contracts</span>
-                  <SwitchToggle handleShow={(e)=>setBool(e)} toggle={bool} off='false' on='true' />
+                  <SwitchToggle
+                    handleShow={(e) => setBool(e)}
+                    toggle={bool}
+                    off="false"
+                    on="true"
+                  />
                 </Box>
                 <Box mt="0.5rem" mb="0.5rem">
                   <hr />
@@ -255,7 +261,7 @@ export default function CustomizedDialogs() {
             onClick={handleClose}
             variant="contained"
             className="addproduct_button"
-            endIcon={<img src={AddIcon} alt="..."/>}
+            endIcon={<img src={AddIcon} alt="..." />}
           >
             Add Product
           </Button>

@@ -28,7 +28,7 @@ const cardSlice = createSlice({
     },
     tagsAdd: (state, action) => {
       const hero = state.checkbox[action.payload.dataid];
-       state.checkbox.filter((value) => {
+      state.checkbox.filter((value) => {
         if (value.val === action.payload.cValue) {
           if (value.bool) {
             value.bool = false;
@@ -36,7 +36,7 @@ const cardSlice = createSlice({
             value.bool = true;
           }
         }
-        return value
+        return value;
       });
       let newCheckedValues = state.tags.filter((item) => item.val !== hero.val);
       if (action.payload.checked) newCheckedValues.push(hero);
@@ -44,23 +44,61 @@ const cardSlice = createSlice({
     },
     deleteTags: (state, action) => {
       let filterDlt = state.tags.filter((val) => val.val !== action.payload);
-      state.checkbox.filter((val)=>{
-        if(val.val===action.payload){
-          if(val.bool){
-             val.bool = false;
-          }else{
-            val.bool=true
+      state.checkbox.filter((val) => {
+        if (val.val === action.payload) {
+          if (val.bool) {
+            val.bool = false;
+          } else {
+            val.bool = true;
           }
           // return val
-
         }
-        return val
-      })
+        return val;
+      });
       state.tags = filterDlt;
+    },
+    addCartItem: (state, action) => {
+      // const checkcart = state.cart.filter((res) => res.id !== action.payload);
+      const cartItemFilter = state.filteredData.filter(
+        (val) => val.id === action.payload 
+      );
+      state.cart = [...state.cart, cartItemFilter];
+    },
+    addQty: (state, action) => {
+      state.cart.filter((val) => {
+        val.map((value) => {
+          if (value.id === action.payload) {
+            value.qty++;
+          }
+          return value;
+        });
+        return val;
+      });
+    },
+    minusQty: (state, action) => {
+      state.cart.filter((val) => {
+        val.map((value) => {
+          if (value.id === action.payload) {
+            if (value.qty > 0) {
+              value.qty--;
+            }
+          }
+          return value;
+        });
+        return val;
+      });
     },
   },
 });
 
-export const { dataAtoZ, highToLow, priceRange, tagsAdd, deleteTags } =
-  cardSlice.actions;
+export const {
+  dataAtoZ,
+  highToLow,
+  priceRange,
+  tagsAdd,
+  deleteTags,
+  addCartItem,
+  minusQty,
+  addQty,
+} = cardSlice.actions;
 export const cardReducer = cardSlice.reducer;
