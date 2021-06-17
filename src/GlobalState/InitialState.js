@@ -103,4 +103,5 @@ export const InitialState = {
   ],
   tags: [],
   cart: [],
+  compare:[]
 };

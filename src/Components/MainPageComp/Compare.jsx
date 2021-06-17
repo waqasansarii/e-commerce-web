@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import compare from "../../Assets/compare (1) 1.svg";
 import item from "../../Assets/image 21.svg";
 
@@ -66,6 +67,11 @@ const compareData = [
 ];
 
 const Compare = ({ img, price }) => {
+  const selector = useSelector((state) => {
+    return state.cardReducer.compare;
+  });
+
+
   return (
     <div className="compare_container">
       <div className="compare_md">
@@ -77,7 +83,7 @@ const Compare = ({ img, price }) => {
                 <h2>Compare</h2>
               </div>
               <div className="items_no">
-                <p>3 Items</p>
+                <p>{selector.length} Items</p>
               </div>
             </div>
             <div className="compare_bofd mob_none">

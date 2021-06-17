@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector,useDispatch } from "react-redux";
-import {addCartItem} from '../../GlobalState/CreateSlice'
+import { useSelector, useDispatch } from "react-redux";
+import { addCartItem, compareData } from "../../GlobalState/CreateSlice";
 import "./Card.css";
 // assets
 import arrow from "../../Assets/Vector (1).svg";
@@ -9,22 +9,29 @@ import add from "../../Assets/Vector.svg";
 import AddItemModal from "../Modal/AddItemModal";
 
 const Card = ({ price, cardImgShow }) => {
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
   const selector = useSelector((state) => {
     return state.cardReducer.cardData;
   });
 
-  const handleAddItem =(e) =>{
-     dispatch(addCartItem(e))
-  } 
+  const handleAddItem = (e) => {
+    dispatch(addCartItem(e));
+  };
+
+  const handleCompare = (e) => {
+    const checked = e.target.checked 
+    const cValue = e.target.value 
+    const dataid = e.target.dataset.id
+    dispatch(compareData({checked,dataid,cValue}));
+  };
 
   return (
     <div className="card_container">
-      {selector.map((val) => (
+      {selector.map((val, id) => (
         <div className="card_div" key={val.id}>
           <div className="card_top_div">
             {val.newArrival ? <img src={val.newArrival} alt="..." /> : null}
-            <div className="add_card_div" onClick={()=>handleAddItem(val.id)} >
+            <div className="add_card_div" onClick={() => handleAddItem(val.id)}>
               <p>ADD</p>
               <img src={add} alt="..." />
             </div>
@@ -49,7 +56,14 @@ const Card = ({ price, cardImgShow }) => {
                   <img src={compare} alt="..." />
                   <p>COMPARE</p>
                 </div>
-                <input type="checkbox" name="compare" id="compare" />
+                <input
+                  type="checkbox"
+                  onChange={handleCompare}
+                  data-id={id}
+                  name="compare"
+                  id="compare"
+                  value={val.id}
+                />
               </div>
               <AddItemModal />
             </div>

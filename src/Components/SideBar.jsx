@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SideBar() {
+export default function SideBar({ admin }) {
   const classes = useStyles();
   const history = useHistory();
   const [state, setState] = React.useState({
@@ -78,6 +78,8 @@ export default function SideBar() {
 
     setState({ ...state, [anchor]: open });
   };
+
+  // mobile view sidebar
 
   const list = (anchor) => (
     <div
@@ -104,7 +106,7 @@ export default function SideBar() {
             exact
             activeClassName="activeLink"
             className="sidebar_mob_link"
-            to="/"
+            to={admin?'/admin':"/"}
           >
             <img className="img1" src={home} alt="..." />
             <img className="img2" src={dashboardIcon} alt="..." />
@@ -116,10 +118,10 @@ export default function SideBar() {
             // exact
             // activeClassName="activeLink"
             className="sidebar_mob_link"
-            to="#"
+            to={admin?'/users':'#'}
           >
             <img src={qu} alt="..." />
-            <p>Quote</p>
+            <p>{admin?'Users':'Quote'}</p>
           </NavLink>
         </div>
       </List>
@@ -128,49 +130,53 @@ export default function SideBar() {
           exact
           activeClassName="activeLink"
           className="sidebar_mob_link"
-          to="/faq"
+          to= {admin?'/tickets': "/faq"}
         >
           <img className="img1" src={faqWhite} alt="..." />
           <img className="img2" src={faq} alt="..." />
-          <p>FAQ</p>
+          <p>{admin?'Support Tickets': 'FAQ'}</p>
         </NavLink>
       </div>
-      <div>
-        <NavLink
-          exact
-          activeClassName="activeLink"
-          className="sidebar_mob_link"
-          to="/user-profile"
-        >
-          <img className="img1" src={settingIcon} alt="..." />
-          <img className="img2" src={setting} alt="..." />
-          <p>Setting</p>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          exact
-          activeClassName="activeLink"
-          className="sidebar_mob_link"
-          to="/signup"
-        >
-          <AccountCircleIcon className="img1" />
-          <AccountCircleIcon className="img2" />
-          <p>Sign up</p>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          exact
-          activeClassName="activeLink"
-          className="sidebar_mob_link"
-          to="/login"
-        >
-          <AccountCircleIcon className="img1" />
-          <AccountCircleIcon className="img2" />
-          <p>Login</p>
-        </NavLink>
-      </div>
+      {!admin ? (
+        <>
+          <div>
+            <NavLink
+              exact
+              activeClassName="activeLink"
+              className="sidebar_mob_link"
+              to="/user-profile"
+            >
+              <img className="img1" src={settingIcon} alt="..." />
+              <img className="img2" src={setting} alt="..." />
+              <p>Setting</p>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              exact
+              activeClassName="activeLink"
+              className="sidebar_mob_link"
+              to="/signup"
+            >
+              <AccountCircleIcon className="img1" />
+              <AccountCircleIcon className="img2" />
+              <p>Sign up</p>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              exact
+              activeClassName="activeLink"
+              className="sidebar_mob_link"
+              to="/login"
+            >
+              <AccountCircleIcon className="img1" />
+              <AccountCircleIcon className="img2" />
+              <p>Login</p>
+            </NavLink>
+          </div>
+        </>
+      ) : null}
     </div>
   );
 
@@ -194,12 +200,15 @@ export default function SideBar() {
             ))}
           </Toolbar>
           <div className="cart_img_div">
+            {!admin?
             <div>
               <CartSideBar />
             </div>
+            :null}
             <img src={profile} alt="..." />
           </div>
         </AppBar>
+        {/* desktop view  */}
         <div className="desktop_drw">
           <Drawer
             className={classes.drawer}
@@ -224,7 +233,7 @@ export default function SideBar() {
                   exact
                   activeClassName="activeLink"
                   className="sidebar_link"
-                  to="/"
+                  to={admin ? "/admin" : "/"}
                 >
                   <img className="img1" src={home} alt="..." />
                   <img className="img2" src={dashboardIcon} alt="..." />
@@ -236,63 +245,79 @@ export default function SideBar() {
                   // exact
                   // activeClassName="activeLink"
                   className="sidebar_link"
-                  to="#"
+                  to={admin ? "/user" : "#"}
                 >
                   <img src={qu} alt="..." />
-                  <p>Quote</p>
+                  <p>{admin ? "Users" : "Quote"} </p>
                 </NavLink>
               </div>
+              {admin ? (
+                <div>
+                  <NavLink
+                    exact
+                    activeClassName="activeLink"
+                    className="sidebar_link"
+                    to="/tickets"
+                  >
+                    <img className="img1" src={home} alt="..." />
+                    <img className="img2" src={dashboardIcon} alt="..." />
+                    <p>Support Tickets </p>
+                  </NavLink>
+                </div>
+              ) : null}
             </List>
-            <List className="faq_links">
-              <div>
-                <NavLink
-                  exact
-                  activeClassName="activeLink"
-                  className="sidebar_link"
-                  to="/faq"
-                >
-                  <img className="img1" src={faqWhite} alt="..." />
-                  <img className="img2" src={faq} alt="..." />
-                  <p>FAQ</p>
-                </NavLink>
-              </div>
-              <div>
-                <NavLink
-                  exact
-                  activeClassName="activeLink"
-                  className="sidebar_link"
-                  to="/user-profile"
-                >
-                  <img className="img1" src={settingIcon} alt="..." />
-                  <img className="img2" src={setting} alt="..." />
-                  <p>Setting</p>
-                </NavLink>
-              </div>
-              <div>
-                <NavLink
-                  exact
-                  activeClassName="activeLink"
-                  className="sidebar_link"
-                  to="/signup"
-                >
-                  <AccountCircleIcon className="img1" />
-                  <AccountCircleIcon className="img2" />
-                  <p>Sign up</p>
-                </NavLink>
-              </div>
-              <div>
-                <NavLink
-                  exact
-                  activeClassName="activeLink"
-                  className="sidebar_link"
-                  to="/login"
-                >
-                  <AccountCircleIcon className="img1" />
-                  <AccountCircleIcon className="img2" />
-                  <p>Login</p>
-                </NavLink>
-              </div>
-            </List>
+            {!admin ? (
+              <List className="faq_links">
+                <div>
+                  <NavLink
+                    exact
+                    activeClassName="activeLink"
+                    className="sidebar_link"
+                    to="/faq"
+                  >
+                    <img className="img1" src={faqWhite} alt="..." />
+                    <img className="img2" src={faq} alt="..." />
+                    <p>FAQ</p>
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    exact
+                    activeClassName="activeLink"
+                    className="sidebar_link"
+                    to="/user-profile"
+                  >
+                    <img className="img1" src={settingIcon} alt="..." />
+                    <img className="img2" src={setting} alt="..." />
+                    <p>Setting</p>
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    exact
+                    activeClassName="activeLink"
+                    className="sidebar_link"
+                    to="/signup"
+                  >
+                    <AccountCircleIcon className="img1" />
+                    <AccountCircleIcon className="img2" />
+                    <p>Sign up</p>
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    exact
+                    activeClassName="activeLink"
+                    className="sidebar_link"
+                    to="/login"
+                  >
+                    <AccountCircleIcon className="img1" />
+                    <AccountCircleIcon className="img2" />
+                    <p>Login</p>
+                  </NavLink>
+                </div>
+              </List>
+            ) : null}
           </Drawer>
         </div>
       </div>

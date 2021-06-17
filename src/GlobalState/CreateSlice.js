@@ -60,7 +60,7 @@ const cardSlice = createSlice({
     addCartItem: (state, action) => {
       // const checkcart = state.cart.filter((res) => res.id !== action.payload);
       const cartItemFilter = state.filteredData.filter(
-        (val) => val.id === action.payload 
+        (val) => val.id === action.payload
       );
       state.cart = [...state.cart, cartItemFilter];
     },
@@ -88,6 +88,14 @@ const cardSlice = createSlice({
         return val;
       });
     },
+    compareData: (state, action) => {
+      const hero = state.filteredData[action.payload.dataid];
+      let newCheckedValues = state.compare.filter(
+        (item) => item.id !== hero.id
+      );
+      if (action.payload.checked) newCheckedValues.push(hero);
+      state.compare = newCheckedValues;
+    },
   },
 });
 
@@ -100,5 +108,6 @@ export const {
   addCartItem,
   minusQty,
   addQty,
+  compareData,
 } = cardSlice.actions;
 export const cardReducer = cardSlice.reducer;

@@ -8,7 +8,7 @@ import SideBar from "../../Components/SideBar";
 const AdminDashboard = () => {
   return (
     <div className="admin_container">
-      <SideBar />
+      <SideBar admin />
       <div className="admin_md">
         <div className="admin_sd">
           <div className="admin_user_no">
