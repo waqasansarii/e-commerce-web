@@ -49,7 +49,6 @@ export default function CartSideBar() {
           <tbody>
             {selector && selector.map((res, id) => (
               <React.Fragment key={id}>
-                {/* {res.map((val) => ( */}
                   <tr key={res.id}>
                     <td className="pro_info_td">
                       <img
@@ -79,7 +78,6 @@ export default function CartSideBar() {
                       <img onClick={() => dispatch(deleteCartItem(res.id))} src={dlt} alt="" />
                     </td>
                   </tr>
-                {/* ))} */}
               </React.Fragment>
             ))}
           </tbody>

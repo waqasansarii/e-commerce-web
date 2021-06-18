@@ -67,7 +67,6 @@ const cardSlice = createSlice({
         );
         state.cart = [...state.cart, cartItemFilter];
       }
-
     },
     deleteCartItem: (state, action) => {
       var cartItemFilter = state.cart.filter(

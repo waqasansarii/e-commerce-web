@@ -3,68 +3,6 @@ import { useSelector } from "react-redux";
 import compare from "../../Assets/compare (1) 1.svg";
 import item from "../../Assets/image 21.svg";
 
-const compareData = [
-  {
-    id: "01",
-    text1: "Dummy Text",
-    text2: "Dummy Text",
-    text3: "Dummy Text",
-    text4: "Dummy Text",
-    text5: "Dummy Text",
-    text6: "Dummy Text",
-    text7: "Dummy Text",
-    text8: "Dummy Text",
-    text9: "Dummy Text",
-    text10: "Dummy Text",
-    head: "Dummy Text",
-    img: item,
-  },
-  {
-    id: "02",
-    text1: "Dummy Text",
-    text2: "Dummy Text",
-    text3: "Dummy Text",
-    text4: "Dummy Text",
-    text5: "Dummy Text",
-    text6: "Dummy Text",
-    text7: "Dummy Text",
-    text8: "Dummy Text",
-    text9: "Dummy Text",
-    text10: "Dummy Text",
-    head: "Dummy Text",
-    img: item,
-  },
-  {
-    id: "03",
-    text1: "Dummy Text",
-    text2: "Dummy Text",
-    text3: "Dummy Text",
-    text4: "Dummy Text",
-    text5: "Dummy Text",
-    text6: "Dummy Text",
-    text7: "Dummy Text",
-    text8: "Dummy Text",
-    text9: "Dummy Text",
-    text10: "Dummy Text",
-    head: "Dummy Text",
-    img: item,
-  },
-  {
-    id: "04",
-    text1: "Dummy Text",
-    text2: "Dummy Text",
-    text3: "Dummy Text",
-    text4: "Dummy Text",
-    text5: "Dummy Text",
-    text6: "Dummy Text",
-    text7: "Dummy Text",
-    text8: "Dummy Text",
-    text9: "Dummy Text",
-    text10: "Dummy Text",
-    head: "Dummy Text",
-    img: item,
-  },
-];
 
 const Compare = ({ img, price }) => {
   const selector = useSelector((state) => {

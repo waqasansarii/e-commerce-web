@@ -38,7 +38,7 @@ const cardData = [
   },
   {
     id: "04",
-    newArrival: newArrive,
+    // newArrival: newArrive,
     cardImg: cardImg,
     title: "Drove",
     name: "Darran",

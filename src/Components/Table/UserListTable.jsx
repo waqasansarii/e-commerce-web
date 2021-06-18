@@ -10,7 +10,7 @@ import Paper from "@material-ui/core/Paper";
 // assets
 import filLogo from "../../Assets/fil-logo.png";
 import { Box } from "@material-ui/core";
-// import { Pagination } from "@material-ui/lab";
+import { Pagination } from "@material-ui/lab";
 import { useState } from "react";
 // import { visibleGridColumnsSelector } from "@material-ui/data-grid";
 import { useHistory } from "react-router-dom";
@@ -159,12 +159,12 @@ export default function UserListTable() {
         </Table>
       </TableContainer>
       <Box className="ul_pagination">
-        {/* <Pagination
+        <Pagination
           page={val + 1}
           count={Math.ceil(rows.length / rowsPerpage)}
           onChange={(_e, v) => setVal(v - 1)}
           color="primary"
-        /> */}
+        />
       </Box>
     </React.Fragment>
   );

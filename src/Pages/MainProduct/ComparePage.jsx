@@ -39,7 +39,6 @@ const ComparePage = () => {
   const [range, setRange] = React.useState([min, max]);
   const handleRange = (event, newValue) => {
     setRange(newValue);
-    console.log(newValue)
   };
 
 
