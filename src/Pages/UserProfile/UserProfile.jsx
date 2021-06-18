@@ -1,4 +1,6 @@
+import { Button } from "@material-ui/core";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import SideBar from "../../Components/SideBar";
 import "./UserProfile.css";
 
@@ -6,6 +8,7 @@ const UserProfile = () => {
   return (
     <React.Fragment>
       <SideBar />
+
       <div className="user_profile_section">
         <div className="userprofile_form">
           <div className="up_r">
@@ -43,6 +46,9 @@ const UserProfile = () => {
             </form>
           </div>
         </div>
+        <NavLink to="/admin">
+          <Button>Admin Pannel</Button>
+        </NavLink>
       </div>
     </React.Fragment>
   );

@@ -122,7 +122,6 @@
   align-items: center;
 }
 
-
 .amc_2 strong {
   margin-top: 5px;
 }
@@ -192,6 +191,57 @@
   line-height: 0 !important;
 }
 
+/* export_modal */
+
+.export_modal {
+  padding-bottom: 20px !important;
+}
+
+.export_modal h6 {
+  /* padding-left: 10px; */
+  font-weight: 600;
+  font-family: "Inter", sans-serif !important;
+}
+
+.export_modal .MuiDialogTitle-root {
+  padding: 24px 25px 5px 25px !important;
+}
+
+.export_modal .report_modal_content {
+  padding: 2px 30px 40px 30px !important;
+}
+
+.export_modal .report_modal_content > div > span {
+  margin-left: 5px;
+  font-weight: 500;
+  color: #0075ff;
+}
+
+.export_items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.export_items div {
+  width: 30%;
+  height: 100px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.export_items div span {
+  margin-top: 10px;
+  color: #302c2c;
+  font-family: "Inter", sans-serif !important;
+}
+
 @media screen and (max-width: 900px) {
   .additem_model_content {
     overflow: unset !important;
@@ -250,6 +300,50 @@
   .report_form > div input {
     width: 100%;
   }
+  .export_modal .report_modal_content {
+    width: 450px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .export_modal .report_modal_content {
+    width: 420px;
+  }
+  .export_items div span {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 487px) {
+  .export_modal .report_modal_content {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .export_modal .report_modal_content {
+    width: 379px;
+  }
+}
+
+@media screen and (max-width: 444px) {
+  .export_modal .report_modal_content {
+    width: 349px;
+    padding: 2px 13px 40px 13px !important;
+    margin: 0 auto;
+  }
+  .export_modal .MuiDialogTitle-root {
+    padding: 24px 14px 5px 14px !important;
+  }
+  .export_modal h6 {
+    font-size: 1rem;
+  }
+  /* .export_modal .report_modal_content > div {
+    padding-left: 10px;
+  } */
+  .export_modal .report_modal_content > .export_items {
+    padding-left: 0;
+  }
 }
 
 @media screen and (max-width: 426px) {
@@ -257,6 +351,39 @@
     font-size: 18px;
   }
   .report_form label {
+    font-size: 0.8rem;
+  }
+  .export_items div img {
+    width: 32px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .export_modal .report_modal_content {
+    width: 320px;
+  }
+  .export_items div span {
+    text-align: center;
+    padding: 0 5px !important;
+  }
+  .export_modal .MuiDialog-paper {
+    margin: 32px 0 !important;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .export_modal .MuiDialog-paper {
+    margin: 32px auto !important;
+    max-width: 296px;
+    width: 313px;
+  }
+  .export_modal .report_modal_content {
+    width: 284px;
+  }
+  .export_modal h6 {
+    font-size: 0.8rem;
+  }
+  .export_modal .report_modal_content > div > span {
     font-size: 0.8rem;
   }
 }

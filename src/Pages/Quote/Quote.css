@@ -1,0 +1,228 @@
+.quote_section {
+  margin-top: 89px;
+  padding-left: 8rem;
+  width: 100%;
+}
+
+.delete_icon_b {
+  display: flex;
+  align-items: center;
+}
+
+.delete_icon_b {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+.delete_icon_b {
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.delete_icon_b span {
+  font-size: 1rem;
+  color: #0075ff;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600;
+}
+
+.delete_icon_b img {
+  margin-right: 8px;
+}
+
+.c_line {
+  width: 1.4px;
+  margin: 0 10px;
+  height: 20px;
+  background: #dedede;
+}
+
+.pagination_b {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+
+.qu_box {
+  width: 98%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.qu_b1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qu_b1 > div {
+  width: 150px;
+  height: 80px;
+  background: white;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  padding-left: 25px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+  line-height: 1.8;
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.qu_table {
+  width: 98%;
+}
+
+.qu_table .MuiPaper-elevation1 {
+  box-shadow: none !important;
+}
+
+/* .qu_table .MuiTableContainer-root::-webkit-scrollbar {
+  height: 2px !important;
+} */
+.qu_table .MuiTableContainer-root::-webkit-scrollbar {
+  height: 5px !important;
+}
+.qu_table .MuiTableContainer-root::-webkit-scrollbar-thumb,
+.compare_container::-webkit-scrollbar-thumb {
+  background-color: #0075ff;
+  border-radius: 10px;
+}
+.qu_table .MuiTableContainer-root::-webkit-scrollbar-track,
+.compare_container::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+}
+
+.qu_item1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qu_item1 img {
+  width: 30px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.MuiTableCell-paddingCheckbox {
+  width: 48px !important;
+}
+
+.qu_table .MuiTablePagination-input {
+  display: none;
+}
+
+.qu_table .MuiTablePagination-actions {
+  width: 160px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.qu_table .MuiTablePagination-input {
+  position: relative !important;
+  left: 130px !important;
+}
+
+.qu_table .MuiTablePagination-caption {
+  position: relative;
+  left: 127px;
+  margin-left: 49px;
+}
+
+.qu_table span {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.makeStyles-highlight-23 {
+  color: #302c2c !important;
+  background-color: white !important;
+}
+
+.MuiTableRow-root.Mui-selected,
+.MuiTableRow-root.Mui-selected:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.qu_table .MuiTableCell-root {
+  border-bottom: none !important;
+}
+
+@media screen and (max-width: 1068px) {
+  .qu_box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .qu_b1 {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .qu_b1 > div {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .quote_section {
+    padding-left: 0;
+  }
+  .qu_box {
+    width: 98%;
+    margin: 0 auto 2rem auto;
+  }
+  .qu_table {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .qu_table {
+    width: 94% !important;
+  }
+  .qu_table .MuiToolbar-root {
+    width: 98%;
+    padding-top: 15px;
+    /* display: block; */
+  }
+  .toolbar_quote > .MuiToolbar-root {
+    display: flex;
+    flex-direction: column;
+  }
+  .qu_table .MuiTablePagination-toolbar {
+    justify-content: center;
+    display: flex;
+    width: 28%;
+  }
+  .pagination_b {
+    width: 100%;
+    display: flex;
+  }
+  .pagination_b img {
+    margin-top: 13px;
+  }
+  .pagination_b .MuiTablePagination-root {
+    width: 84%;
+    overflow: inherit !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .qu_b1 {
+    justify-content: space-around;
+  }
+  .qu_b1 > div {
+    margin-right: 0;
+  }
+}

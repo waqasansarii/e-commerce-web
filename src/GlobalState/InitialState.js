@@ -18,7 +18,7 @@ const cardData = [
   },
   {
     id: "02",
-    // newArrival:newArrive,
+    newArrival:newArrive,
     cardImg: cardImg,
     title: "Brove",
     name: "Darran",
@@ -80,7 +80,7 @@ const cardData = [
 
 export const InitialState = {
   cardData,
-  filteredData: [...cardData],
+  filteredData: cardData,
   checkbox: [
     { val: "Desks and Workspace", bool: false },
     { val: "Healthcare", bool: false },

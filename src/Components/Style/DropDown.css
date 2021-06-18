@@ -1,0 +1,37 @@
+.setting_menu .MuiPaper-root {
+  width: 300px !important;
+  left: 906px;
+}
+
+.setting_drpdwn_item {
+  transition: none !important;
+  background-color: transparent !important;
+}
+
+.setting_drpdwn_item {
+  background-color: transparent !important;
+}
+
+.sh_box1 span {
+  margin-left: 10px;
+}
+
+.sh_box2 button {
+  border-radius: 2px !important;
+  margin-left: 5px;
+}
+
+.sh_box2 button:focus {
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.drp_active_btn1 {
+  background: #0075ff !important;
+  color: white !important;
+}
+
+.drp_active_btn2 {
+  background: #dedede !important;
+  color: black !important;
+}

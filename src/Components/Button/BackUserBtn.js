@@ -1,19 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import "../Style/Button.css";
 // assets
-import back_icon from "../../Assets/back_icon.png";
 
-export default function BackUserBtn() {
+export default function BackUserBtn(props) {
   return (
     <div>
-      <Button
-        variant="contained"
-        className="back_button"
-        startIcon={<img src={back_icon} alt="..." />}
-      >
-        Back to Users
-      </Button>
+      <Link to={props.btnLink}>
+        <Button
+          variant="contained"
+          className="back_button"
+          startIcon={<img src={props.btnImg} alt="..." />}
+        >
+          {props.btnName}
+        </Button>
+      </Link>
     </div>
   );
 }

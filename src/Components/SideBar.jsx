@@ -15,6 +15,10 @@ import dashboardIcon from "../Assets/dashboard-icon.png";
 import settingIcon from "../Assets/settings-icon.png";
 import faqWhite from "../Assets/question-icon.png";
 import qu from "../Assets/Group 16555.svg";
+import quw from "../Assets/quote-icon.png";
+import adminUser from "../Assets/admi-user-icon.png";
+import adminUserW from "../Assets/admi-user-iconw.png";
+import adminTicket from "../Assets/admin-ticket-icon.png";
 import faq from "../Assets/Group 16556.svg";
 import setting from "../Assets/settings icon.svg";
 import logo from "../Assets/CC_Logo_final 2.svg";
@@ -106,7 +110,7 @@ export default function SideBar({ admin }) {
             exact
             activeClassName="activeLink"
             className="sidebar_mob_link"
-            to={admin?'/admin':"/"}
+            to={admin ? "/admin" : "/"}
           >
             <img className="img1" src={home} alt="..." />
             <img className="img2" src={dashboardIcon} alt="..." />
@@ -115,30 +119,46 @@ export default function SideBar({ admin }) {
         </div>
         <div>
           <NavLink
-            // exact
-            // activeClassName="activeLink"
+            exact
+            activeClassName="activeLink"
             className="sidebar_mob_link"
-            to={admin?'/users':'#'}
+            to={admin ? "/user-list" : "/qu"}
           >
-            <img src={qu} alt="..." />
-            <p>{admin?'Users':'Quote'}</p>
+            <img className="img1" src={admin ? adminUserW : quw} alt="..." />
+            <img className="img2" src={admin ? adminUser : qu} alt="..." />{" "}
+            <p>{admin ? "Users" : "Quote"}</p>
           </NavLink>
         </div>
       </List>
-      <div>
+      {/* <div>
+        <NavLink
+        
+          className="sidebar_mob_link"
+          to={admin ? "/tickets" : "/faq"}
+        >
+          <img
+            className="img1"
+            src={admin ? adminTicket : faqWhite}
+            alt="..."
+          />
+          <img className="img2" src={admin ? adminTicket : faq} alt="..." />
+          <p>{admin ? "Support Tickets" : "FAQ"}</p>
+        </NavLink>
+      </div> */}
+    
+      {!admin ? (
+        <>  <div>
         <NavLink
           exact
           activeClassName="activeLink"
           className="sidebar_mob_link"
-          to= {admin?'/tickets': "/faq"}
+          to="/faq"
         >
           <img className="img1" src={faqWhite} alt="..." />
           <img className="img2" src={faq} alt="..." />
-          <p>{admin?'Support Tickets': 'FAQ'}</p>
+          <p>FAQ</p>
         </NavLink>
       </div>
-      {!admin ? (
-        <>
           <div>
             <NavLink
               exact
@@ -200,11 +220,11 @@ export default function SideBar({ admin }) {
             ))}
           </Toolbar>
           <div className="cart_img_div">
-            {!admin?
-            <div>
-              <CartSideBar />
-            </div>
-            :null}
+            {!admin ? (
+              <div>
+                <CartSideBar />
+              </div>
+            ) : null}
             <img src={profile} alt="..." />
           </div>
         </AppBar>
@@ -242,27 +262,44 @@ export default function SideBar({ admin }) {
               </div>
               <div>
                 <NavLink
-                  // exact
-                  // activeClassName="activeLink"
+                  exact
+                  activeClassName="activeLink"
                   className="sidebar_link"
-                  to={admin ? "/user" : "#"}
+                  to={admin ? "/user-list" : "/qu"}
                 >
-                  <img src={qu} alt="..." />
+                  <img
+                    className="img1"
+                    src={admin ? adminUserW : quw}
+                    alt="..."
+                  />
+                  <img
+                    className="img2"
+                    src={admin ? adminUser : qu}
+                    alt="..."
+                  />
                   <p>{admin ? "Users" : "Quote"} </p>
                 </NavLink>
               </div>
               {admin ? (
                 <div>
-                  <NavLink
+                  {/* <NavLink
                     exact
                     activeClassName="activeLink"
                     className="sidebar_link"
-                    to="/tickets"
+                    to="#"
                   >
-                    <img className="img1" src={home} alt="..." />
-                    <img className="img2" src={dashboardIcon} alt="..." />
+                    <img
+                      className="img1"
+                      src={admin ? adminTicket : home}
+                      alt="..."
+                    />
+                    <img
+                      className="img2"
+                      src={admin ? adminTicket : dashboardIcon}
+                      alt="..."
+                    />
                     <p>Support Tickets </p>
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               ) : null}
             </List>

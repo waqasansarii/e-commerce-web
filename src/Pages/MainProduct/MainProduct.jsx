@@ -8,27 +8,28 @@ import { useDispatch } from "react-redux";
 // assets
 import topArr from "../../Assets/arrow-right 3.svg";
 import "./Style.css";
-import { useEffect } from "react";
-import { useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 const MainProduct = () => {
   const history = useHistory();
-  const header = useRef();
-  // top button show
-  useEffect(() => {
-    const handleScroll = function () {
-      if (!header.current) return;
-      if (window.innerWidth < 990) {
-        header.current.classList.add("showTop", window.scrollY > 400);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  // end
+
+  // // top button show
+  const [showScroll, setShowScroll] = useState(false);
+
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 500) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 500) {
+      setShowScroll(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  window.addEventListener("scroll", checkScrollTop);
+  // // end
 
   // viewing option filter function
   // view price
@@ -103,11 +104,13 @@ const MainProduct = () => {
           />
           <Card price={price} cardImgShow={cardImgT} />
         </div>
-        <div ref={header} className="top_arrow_div">
-          <a href="#top">
-            <img src={topArr} alt="..." />
-            <p>Top</p>
-          </a>
+        <div
+          onClick={scrollTop}
+          style={{ height: 40, display: showScroll ? "flex" : "none" }}
+          className="top_arrow_div"
+        >
+          <img src={topArr} alt="..." />
+          <p>Top</p>
         </div>
       </div>
     </div>

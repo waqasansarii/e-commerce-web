@@ -1,7 +1,7 @@
 import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import { useSelector, useDispatch } from "react-redux";
-import { minusQty, addQty } from "../GlobalState/CreateSlice";
+import { minusQty, addQty,deleteCartItem } from "../GlobalState/CreateSlice";
 // assets
 import cart from "../Assets/chair 1.svg";
 import cart2 from "../Assets/cart.svg";
@@ -47,39 +47,39 @@ export default function CartSideBar() {
             </tr>
           </thead>
           <tbody>
-            {selector.map((res, id) => (
+            {selector && selector.map((res, id) => (
               <React.Fragment key={id}>
-                {res.map((val) => (
-                  <tr key={val.id}>
+                {/* {res.map((val) => ( */}
+                  <tr key={res.id}>
                     <td className="pro_info_td">
                       <img
                         className="cart_pro_img"
-                        src={val.cardImg}
+                        src={res.cardImg}
                         alt="..."
                       />{" "}
-                      <span>{val.title}</span>
+                      <span>{res.title}</span>
                     </td>
-                    <td>${val.price}</td>
+                    <td>${res.price}</td>
                     <td className="counter_td">
                       <div>
                         <img
-                          onClick={() => dispatch(minusQty(val.id))}
+                          onClick={() => dispatch(minusQty(res.id))}
                           src={minus}
                           alt="..."
                         />
-                        <span>{val.qty}</span>
+                        <span>{res.qty}</span>
                         <img
-                          onClick={() => dispatch(addQty(val.id))}
+                          onClick={() => dispatch(addQty(res.id))}
                           src={add}
                           alt="..."
                         />
                       </div>
                     </td>
                     <td>
-                      <img src={dlt} alt="" />
+                      <img onClick={() => dispatch(deleteCartItem(res.id))} src={dlt} alt="" />
                     </td>
                   </tr>
-                ))}
+                {/* ))} */}
               </React.Fragment>
             ))}
           </tbody>
@@ -99,7 +99,7 @@ export default function CartSideBar() {
               src={cart}
               alt="..."
             />
-            {selector.length ? (
+            {selector && selector.length ? (
               <span className="no_cart_items">{selector.length}</span>
             ) : null}
           </div>

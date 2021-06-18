@@ -3,10 +3,11 @@
 .back_button {
   color: #3a485a;
   background: white !important;
-  border: 1px solid #e5e5e5;
-  box-shadow: none;
+  border: 1px solid #eceef3 !important;
+  box-shadow: none !important;
   padding: 10px 20px !important;
-  font-family: 'Lato', sans-serif !important;
+  border-radius: 8px !important;
+  font-family: "Roboto", sans-serif !important;
 }
 
 .back_button img {
@@ -21,11 +22,21 @@
 
 .report_button {
   color: white !important;
-  background: #0075FF !important;
+  background: #0075ff !important;
   border: 1px solid #e5e5e5;
   box-shadow: none;
   border-radius: 5px;
   padding: 10px 20px !important;
-  font-family: 'Lato', sans-serif !important;
+  font-family: "Lato", sans-serif !important;
   font-weight: 700 !important;
+}
+
+/* export btn */
+.export_button {
+  color: white !important;
+  background: #0075ff !important;
+  display: flex;
+  align-items: center;
+  text-transform: initial !important;
+  box-shadow: none !important;
 }
